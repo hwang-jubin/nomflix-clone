@@ -75,20 +75,26 @@ a {
   text-decoration:none;
   color:inherit;
 }
+
+.overlay {
+    z-index: 100; // Overlay에 대한 z-index 설정
+  }
+
+  .big-movie {
+    z-index: 101; // BigMovie에 대한 z-index 설정
+  }
 `;
 
 const client = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <RecoilRoot>
-      <QueryClientProvider client={client}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <App />
-        </ThemeProvider>
-      </QueryClientProvider>
-    </RecoilRoot>
-  </React.StrictMode>,
+  <RecoilRoot>
+    <QueryClientProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </QueryClientProvider>
+  </RecoilRoot>,
   document.getElementById("root")
 );
